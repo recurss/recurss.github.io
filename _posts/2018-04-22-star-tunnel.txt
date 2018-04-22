@@ -1,0 +1,33 @@
+---
+layout: specimen
+title: Star Tunnle
+date: 2018-04-22
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 200
+    start: 200
+    speed: 50
+---
+
+body {
+    overflow: hidden;
+}
+
+body > div {
+    width: 40px;
+    height: 40px;
+    transform: none;
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+}
+
+div {
+    width: 100%;
+    height: 100%;
+    transform: rotate(20deg) scale(1.02);
+    background: transparent;
+    border: 1px solid #111;
+}

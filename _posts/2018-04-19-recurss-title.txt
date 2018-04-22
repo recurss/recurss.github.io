@@ -1,0 +1,40 @@
+---
+layout: specimen
+title: RECURSS Title
+date: 2018-04-19
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 100
+    start: 1
+    autoplay: 1
+---
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Georgia;
+    overflow: hidden;
+}
+
+body > div {
+    position; static;
+    margin: auto auto;
+    font-size: 300px;
+}
+
+div {
+    transform: scale(0.99);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+div::before {
+    content: "RECURSS";
+    color: white;
+    text-shadow: 0px 0px 4px #0007;
+}

@@ -1,0 +1,33 @@
+name: Recurss
+author: Matt Bierner
+description: "a collection of recursive css specimens"
+url: https://recurss.mattbierner.github.io
+paginate: 20
+
+google_analytics: UA-69534023-5
+
+baseurl: ""
+
+permalink: pretty
+
+future: true
+
+feed:
+  path: atom.xml
+
+# Set the Sass partials directory, as we're using @imports
+sass:
+  style: :expanded # You might prefer to minify using :compressed
+
+gems:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+  - support

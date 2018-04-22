@@ -1,0 +1,24 @@
+
+body .index-footer {
+    margin-top: 4rem;
+
+    text-align: center;
+
+    .footer-links {
+        margin-bottom: 1.5em;
+
+        & > * {
+            margin: 0 0.8em;
+        }
+    }
+
+    .footer-post {
+        display: inline-block;
+        font-size: 0.75em;
+        max-width: 30em;
+    }
+
+    .footer-post > * {
+        display: block;
+    }
+}

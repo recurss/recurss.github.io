@@ -1,0 +1,28 @@
+---
+layout: specimen
+title: Ski Run
+date: 2018-04-20
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 300
+    start: 1
+    speed: 50
+    autoplay: 1
+---
+
+body > div {
+    margin: 0 auto;
+}
+
+div {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(#67bdff77, transparent);
+    padding-top: 1px;
+    margin-top: 2px;
+    margin-left: 20px;
+    transform: rotateY(20deg) scale(1.01, 1.01);
+    transform-style: preserve-3d;
+}

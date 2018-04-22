@@ -1,0 +1,46 @@
+---
+layout: specimen
+title: Spiral 2
+date: 2018-04-21
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 40
+    start: 40
+---
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body > div {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 100px;
+    top: -100px; 
+}
+
+div {
+    transform: rotate(9deg);
+    border: 2px solid #8afcff;
+}
+
+div, div::after {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+div::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #ff5fd2;
+}

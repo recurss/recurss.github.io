@@ -1,0 +1,28 @@
+---
+layout: specimen
+title: City
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 300
+    start: 200
+---
+
+body > div {
+    height: 400px;
+    transform: none;
+    margin-top: 100px;
+}
+
+div {
+    width: 70px;
+    height: 100%;
+    background: linear-gradient(#333 20%, transparent);
+    margin-left: 400px;
+    transform: rotateY(43deg) scale(0.99);
+    transform-style: preserve-3d;
+    border-style: solid;
+    border-image: linear-gradient(#ff73d922, transparent) 1;
+    border-bottom: none;
+}

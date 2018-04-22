@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<header class="masthead">
+    <h1 class="page-title"><a href="{{ site.baseurl }}/" class="site-avatar">RECURSS</a> / {{ page.title }}</h1>
+
+    <h2 class="post-meta">{{ page.date | date: "%Y-%m-%d" }} — <a href="{{ page.author.link }}">{{ page.author.name }}</a> — <a href="https://github.com/mattbierner/recurss/tree/master/{{ page.path }}">source</a></h2>
+</header>
+
+<article role="main" class="main post">
+    <iframe id='content-iframe' srcdoc="<!DOCTYPE html>
+        <html lang='en'>
+        <head>
+            <meta charset='utf-8' />
+            <meta http-equiv='Content-Security-Policy' content=&quot;default-src 'none'; style-src 'unsafe-inline'; img-src data:;&quot;>
+            <title>content</title>
+
+            <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+            <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+            <style>
+                html, body {
+                    width: 100%;
+                    height: 100%;
+                    min-width: 100%;
+                    min-height: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                {{page.content | xml_escape}}
+            </style>
+        </head>
+        <body>
+            <div></div>
+        </body>
+        </html>"></iframe>
+
+    <div class='count-controls'>
+        <button class='decrease-button'></button>
+        <div class='count-slider'></div>
+        <button class='increase-button'></button>
+        <button class='play-button'></button>
+    </div>
+</article>
+
+
+<div id='page-settings' style="display: none;"
+    data-max="{{ page.settings.max }}"
+    data-start="{{ page.settings.start }}"
+    data-autoplay="{{ page.settings.autoplay }}"
+    data-speed="{{ page.settings.speed }}"
+></div>
+
+<script type="text/javascript" src="/scripts/index.js"></script>

@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+{% include index_header.html %}
+
+<div role="main" class="posts">
+    {% for post in paginator.posts %}
+        {% include post_index.html %}
+    {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+    <nav class="pagination container">
+        {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a>
+        {% endif %}
+
+        {% for page in (1..paginator.total_pages) %}
+            {% if page == paginator.page %}
+                <em>{{ page }}</em>
+            {% elsif page == 1 %}
+                <a href="{{ site.baseurl }}/">{{ page }}</a>
+            {% else %}
+                <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a>
+        {% endif %}
+    </nav>
+{% endif %}
+
+
+<footer class="index-footer container">
+    <nav class="footer-links">
+        <a href="">About</a>
+        <a href="">Submit</a>
+        <a href="/atom.xml">Atom Feed</a>
+    </nav>
+    <div class="footer-post">
+        <p>
+            <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" />
+            </a><br> Unless otherwise noted, all content is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a><br>
+        </p>
+        <p id="copyright">Site &copy; 2018 Matt Bierner<br/>Specimens &copy; original authors</p>
+    </div>
+</footer>

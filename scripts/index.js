@@ -19,7 +19,6 @@ function onPageReady() {
     const autoplay = pageSettings.dataset.autoplay;
     const speed = pageSettings.dataset.speed && !isNaN(+pageSettings.dataset.speed) ? +pageSettings.dataset.speed : DEFAULT_SPEED;
 
-
     // UI
     class IncreaseButton {
         constructor() {
@@ -71,7 +70,7 @@ function onPageReady() {
     }
 
     class CountSlider {
-        constructor(currentCount) {
+        constructor(/** @type {number} */ currentCount) {
             this._container = document.querySelector('.count-slider');
 
             this._slider = document.createElement('input');
@@ -90,15 +89,14 @@ function onPageReady() {
 
             this._value = document.createElement('span');
             this._value.className = 'current-count';
-            this._value.textContent = currentCount;
+            this._value.textContent = '' + currentCount;
             this._container.appendChild(this._value);
         }
 
-        set value(/** @type {number} */value) {
+        set value(/** @type {number} */ value) {
             this._value.textContent = '' + value;
             this._slider.value = '' + value;
         }
-
     }
 
     class Controls {
@@ -135,6 +133,11 @@ function onPageReady() {
     }
 
     function onReady() {
+        if (!iframe.contentDocument || !iframe.contentDocument.body) {
+            setTimeout(onReady, 50);
+            return;
+        }
+        
         setDivs(currentCount, true);
         setPlay(autoplay, defaultStart);
     }

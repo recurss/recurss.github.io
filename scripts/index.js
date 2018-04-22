@@ -1,7 +1,13 @@
 // @ts-check
 "use strict";
 
-(function () {
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(onPageReady, 0);
+} else {
+    document.addEventListener('DOMContentLoaded', onPageReady, true);
+}
+
+function onPageReady() {
     const DEFAULT_SPEED = 100;
     const DEFAULT_MAX = 500;
     const DEFAULT_START = 1;
@@ -190,4 +196,4 @@
         controls.value = currentCount;
         return currentCount;
     }
-}());
+};

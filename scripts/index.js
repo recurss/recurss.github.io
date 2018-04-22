@@ -123,9 +123,9 @@
 
     const iframe = /** @type {HTMLIFrameElement} */ (document.getElementById('content-iframe'));
     if (iframe.contentDocument.readyState === 'complete') {
-        iframe.contentDocument.addEventListener('DOMContentLoaded', onReady, true);
-    } else {
         setTimeout(onReady, 0);
+    } else {
+        iframe.contentDocument.addEventListener('DOMContentLoaded', onReady, true);
     }
 
     function onReady() {

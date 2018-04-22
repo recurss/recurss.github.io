@@ -122,13 +122,13 @@
     const controls = new Controls(currentCount);
 
     const iframe = /** @type {HTMLIFrameElement} */ (document.getElementById('content-iframe'));
-    if (iframe.contentDocument.readyState === 'loading') {
-        iframe.contentDocument.addEventListener('DOMContentLoaded', ready, true);
+    if (iframe.contentDocument.readyState === 'complete') {
+        iframe.contentDocument.addEventListener('DOMContentLoaded', onReady, true);
     } else {
-        setTimeout(ready, 0);
+        setTimeout(onReady, 0);
     }
 
-    function ready() {
+    function onReady() {
         setDivs(currentCount, true);
         setPlay(autoplay, defaultStart);
     }

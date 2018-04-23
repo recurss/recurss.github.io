@@ -1,0 +1,24 @@
+---
+layout: specimen
+title: Shrinking Spiral
+author:
+    name: Alok Menghrajani
+    link: https://quaxio.com/
+settings:
+    max: 145       # Maximum value or recursions
+    start: 1       # Starting number of recursions on page load
+    autoplay: 0    # Should recursions start playing when the page is loaded?
+---
+
+body {
+  transform: rotate(-7.5deg) translate(50%, 10%);
+}
+div {
+  border: 1px solid black;
+  background-color: black;
+  transform: rotate(7.5deg) scaleX(0.98);
+  position: absolute;
+  left: 16px;
+  top: 4px;
+  width: 100px;
+}

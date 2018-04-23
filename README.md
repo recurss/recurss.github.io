@@ -62,7 +62,7 @@ Submissions to the Recurss collection are highly welcome. Take a look at [how so
 
 1. One you are happy with your specimen, take a png screenshot of it. Name the screenshot the same as your post (except with `.png` instead of `.txt`) and add the screenshot file in the `previews` directory
 
-    Please make sure you screenshot:
+    Please make sure your screenshot:
 
     - Does not include any browser chrome.
     - Is at most 1200px wide.

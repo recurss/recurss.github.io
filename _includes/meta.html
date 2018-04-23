@@ -23,3 +23,9 @@
     <meta property="og:description" content="{{ site.description }}" />
 {% endif %}
 
+
+{% if page.title %}
+    {% capture preview_image %}{{ site.url }}/previews/{{ page.path | remove_first:'_posts/' | split:'.' | first }}.png{% endcapture %}
+    <meta name="twitter:image" content="{{ preview_image }}">
+{% endif %}
+

@@ -1,0 +1,39 @@
+---
+layout: specimen
+title: CSS
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 50
+    start: 1
+    autoplay: 1
+    speed: 30
+---
+
+body > div {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
+div {
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    border: 2px solid black;
+    padding: 2px;
+    margin-left: -8px;
+    position: relative;
+    font-size: calc(1em + 2px);
+}
+
+div::before {
+    content: "CSS";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    text-shadow: 0 -5px black;
+    transform: translate(-50%, -50%);
+}

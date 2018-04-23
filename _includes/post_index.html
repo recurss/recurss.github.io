@@ -4,7 +4,7 @@
     </h1>
 
     <div class="post-meta container">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time> — <a href="{{ post.author.link }}">{{ post.author.name }}</a> 
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
     </div>
 
     {% capture preview_image %}/previews/{{ post.path | remove_first:'_posts/' | split:'.' | first }}.png{% endcapture %}

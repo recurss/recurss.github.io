@@ -1,6 +1,6 @@
 ---
 layout: specimen
-title: Spiral 3
+title: Spiral 3 (resize your window)
 author:
     name: Matt Bierner
     link: https://mattbierner.com
@@ -18,8 +18,8 @@ body {
 }
 
 body > div {
-    width: 200px;
-    height: 200px;
+    width: 20vw;
+    height: 20vh;
 }
 
 div {

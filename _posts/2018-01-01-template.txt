@@ -2,7 +2,6 @@
 layout: specimen
 published: false # Remove this line!!!
 title: TITLE OF YOUR SPECIMEN
-date: 2018-01-01 # Change this to match the date + file name
 author:
     name: YOUR NAME
     link: LINK TO YOUR SITE

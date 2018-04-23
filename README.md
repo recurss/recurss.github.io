@@ -50,7 +50,7 @@ Submissions to the Recurss collection are highly welcome. Take a look at [how so
 
 1. In your new file, remove the line reading `published: false # Remove this line!!!`
 
-1. In your new file, also fill in the `title`, `date`, and `author` info.
+1. In your new file, also fill in the `title` and `author` info.
 
 1. (Optional) Also fill in the `settings` section:
 

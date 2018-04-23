@@ -10,15 +10,14 @@ settings:
 ---
 
 body > div {
-    height: 400px;
     transform: none;
     margin-top: 100px;
 }
 
 div {
     width: 70px;
-    height: 100%;
-    background: linear-gradient(#333 20%, transparent);
+    height: 400px;
+    background: linear-gradient(#333 20%, #3330);
     margin-left: 400px;
     transform: rotateY(43deg) scale(0.99);
     transform-style: preserve-3d;

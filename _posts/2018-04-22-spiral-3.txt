@@ -1,0 +1,48 @@
+---
+layout: specimen
+title: Spiral 3
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 45
+    start: 45
+---
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body > div {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 100px;
+    top: -100px;
+}
+
+div {
+    transform: rotate(16deg);
+    background: linear-gradient(225deg, #8afcff77, #fff0);
+    padding-left: 20px;
+}
+
+div, div::after {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
+
+div::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    margin-left: 40px;
+    left: 0;
+    background: linear-gradient(225deg, #ff5fd222, #ffffff00);
+}

@@ -7,7 +7,7 @@ author:
 settings:
     max: 145       # Maximum value or recursions
     start: 1       # Starting number of recursions on page load
-    autoplay: 0    # Should recursions start playing when the page is loaded?
+    autoplay: 1    # Should recursions start playing when the page is loaded?
 ---
 
 body {

@@ -16,7 +16,7 @@ function onPageReady() {
 
     const defaultStart = !isNaN(+pageSettings.dataset.start) ? +pageSettings.dataset.start : DEFAULT_START;
     const maxCount = pageSettings.dataset.max && !isNaN(+pageSettings.dataset.max) ? +pageSettings.dataset.max : DEFAULT_MAX;
-    const autoplay = pageSettings.dataset.autoplay;
+    const autoplay = pageSettings.dataset.autoplay && !isNaN(+pageSettings.dataset.autoplay) && +pageSettings.dataset.autoplay;
     const speed = pageSettings.dataset.speed && !isNaN(+pageSettings.dataset.speed) ? +pageSettings.dataset.speed : DEFAULT_SPEED;
 
     // UI

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-    // mode: 'production',
+    mode: 'production',
     entry: {
         "app": './lib/playground.js',
         "editor.worker": 'monaco-editor/esm/vs/editor/editor.worker.js',
@@ -22,6 +22,6 @@ module.exports = {
     },
     plugins: [
         new webpack.IgnorePlugin(/^((fs)|(path)|(os)|(crypto)|(source-map-support))$/, /vs(\/|\\)language(\/|\\)typescript(\/|\\)lib/),
-        // new UglifyJSPlugin()
+        new UglifyJSPlugin()
     ]
 };

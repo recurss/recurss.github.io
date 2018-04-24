@@ -123,7 +123,6 @@ function onPageReady() {
     class Preview {
         constructor() {
             this.playing = false;
-
             this.iframe = /** @type {HTMLIFrameElement} */ (document.getElementById('content-iframe'));
 
             const onReady = () => {
@@ -215,6 +214,4 @@ function onPageReady() {
     let currentCount = defaultStart;
     const preview = new Preview();
     const controls = new Controls(currentCount, preview);
-
-   
 };

@@ -1,0 +1,20 @@
+.playground {
+    flex: 1;
+    display: flex;
+    border-bottom: 1px solid black;
+
+    #editor-container {
+        flex: 1;
+        border-left: 1px solid black;
+        overflow: hidden;
+
+        #editor {
+            height: 100%;
+        }
+    }
+
+    #content-iframe {
+        flex: 1;
+    }
+}
+

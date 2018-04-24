@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<header class="masthead">
+    <h1 class="page-title"><a href="{{ site.baseurl }}/" class="site-avatar">RECURSS</a> / Playground</h1>
+</header>
+    
+<div class="playground">
+    <iframe id='content-iframe' frameborder="0" srcdoc="<!DOCTYPE html>
+        <html lang='en'>
+            <head>
+                <meta charset='utf-8' />
+                <meta http-equiv='Content-Security-Policy' content=&quot;default-src 'none'; style-src 'unsafe-inline'; img-src data:;&quot;>
+                <title>content</title>
+                
+                <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+                <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+                <style>
+                    html, body {
+                        width: 100%;
+                        height: 100%;
+                        min-width: 100%;
+                        min-height: 100%;
+                        margin: 0;
+                        padding: 0;
+                    }
+                </style>
+                <style id='style-content'></style>
+            </head>
+            <body>
+                <div></div>
+            </body>
+            </html>"></iframe>
+
+    <div id='editor-container'>
+        <div id='editor'></div>
+    </div>
+</div>
+
+<div class='count-controls'>
+    <button class='decrease-button'></button>
+    <div class='count-slider'></div>
+    <button class='increase-button'></button>
+    <button class='play-button'></button>
+</div>
+
+<div id='page-settings' style="display: none;"
+    data-max="200"
+    data-start="20"
+    data-autoplay="0"
+    data-speed="100"
+></div>
+
+<script src="./app.bundle.js"></script>
+<script type="text/javascript" src="/scripts/index.js"></script>

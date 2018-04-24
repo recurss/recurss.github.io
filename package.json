@@ -1,0 +1,32 @@
+{
+  "name": "recurss",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A collection of recursive css specimens",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/recurss/recurss.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/recurss/recurss.github.io/issues"
+  },
+  "homepage": "https://github.com/recurss/recurss.github.io#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "monaco-editor-webpack-plugin": "^1.1.0",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.12.0"
+  }
+}

@@ -1,0 +1,43 @@
+---
+layout: specimen
+title: Dazzle 1
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 200
+    start: 200
+---
+
+body {
+    overflow: hidden;
+}
+
+body > div {
+    margin-left: 50vw;
+    margin-top: 50vh;
+}
+
+div, div::after {
+    position: absolute;
+    top: 10px;
+}
+
+div {
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid initial;
+    left: -20px;
+    transform: scale(1.02) rotate(18deg);
+}
+
+div::after {
+    content: "";
+    display: block;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid black;
+    transform: rotate(180deg);
+    left: -10px;
+    top: 10px;
+}

@@ -1,0 +1,25 @@
+---
+layout: specimen
+title: Vortex
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 300
+    start: 0
+    autoplay: 1
+    speed: 50
+---
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+div {
+    transform: rotate(3deg);
+    border: 2px solid white;
+    background: black;
+}

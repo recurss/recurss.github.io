@@ -1,0 +1,36 @@
+---
+layout: specimen
+title: Hypno
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 500
+    start: 500
+---
+
+body {
+    overflow: hidden;
+}
+
+body > div {
+    margin-left: 50vw;
+    margin-top: 50vh;
+}
+
+div, div::after {
+    position: absolute;
+    top: 1px;
+}
+
+div {
+  transform: scale(1.02) rotate(14deg);
+}
+
+div::after {
+    content: "";
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid black;
+    transform: rotate(105deg);
+}

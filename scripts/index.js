@@ -16,17 +16,18 @@ function onPageReady() {
 
     const defaultStart = !isNaN(+pageSettings.dataset.start) ? +pageSettings.dataset.start : DEFAULT_START;
     const maxCount = pageSettings.dataset.max && !isNaN(+pageSettings.dataset.max) ? +pageSettings.dataset.max : DEFAULT_MAX;
-    const autoplay = pageSettings.dataset.autoplay && !isNaN(+pageSettings.dataset.autoplay) && +pageSettings.dataset.autoplay;
+    const autoplay = !!(pageSettings.dataset.autoplay && !isNaN(+pageSettings.dataset.autoplay) && +pageSettings.dataset.autoplay);
     const speed = pageSettings.dataset.speed && !isNaN(+pageSettings.dataset.speed) ? +pageSettings.dataset.speed : DEFAULT_SPEED;
 
     // UI
     class IncreaseButton {
-        constructor() {
+        /**
+         * @param {() => void} onClick
+         */
+        constructor(onClick) {
             this._button = /** @type {HTMLButtonElement} */ (document.querySelector('.increase-button'));
 
-            this._button.addEventListener('click', () => {
-                increaseCount()
-            });
+            this._button.addEventListener('click', onClick);
         }
 
         set value(value) {
@@ -35,12 +36,13 @@ function onPageReady() {
     }
 
     class DecreaseButton {
-        constructor() {
+        /**
+         * @param {() => void} onClick
+         */
+        constructor(onClick) {
             this._button = /** @type {HTMLButtonElement} */ (document.querySelector('.decrease-button'));
 
-            this._button.addEventListener('click', () => {
-                decreaseCount()
-            });
+            this._button.addEventListener('click', onClick);
         }
 
         set value(value) {
@@ -49,13 +51,13 @@ function onPageReady() {
     }
 
     class PlayButton {
-        constructor() {
+        constructor(onChange) {
             this._button = /** @type {HTMLButtonElement} */ (document.querySelector('.play-button'));
 
             this._playing = false;
 
             this._button.addEventListener('click', () => {
-                setPlay(!this._playing);
+                onChange(!this._playing);
             });
         }
 
@@ -70,7 +72,7 @@ function onPageReady() {
     }
 
     class CountSlider {
-        constructor(/** @type {number} */ currentCount) {
+        constructor(/** @type {number} */ currentCount, onChange) {
             this._container = document.querySelector('.count-slider');
 
             this._slider = document.createElement('input');
@@ -80,12 +82,8 @@ function onPageReady() {
             this._slider.max = `${maxCount}`;
             this._slider.value = `${currentCount}`;
             this._container.appendChild(this._slider);
-            this._slider.addEventListener('input', e => {
-                setDivs(e.target.value)
-            });
-            this._slider.addEventListener('change', e => {
-                setDivs(e.target.value)
-            });
+            this._slider.addEventListener('input', e => onChange(e.target.value));
+            this._slider.addEventListener('change', e => onChange(e.target.value));
 
             this._value = document.createElement('span');
             this._value.className = 'current-count';
@@ -100,11 +98,15 @@ function onPageReady() {
     }
 
     class Controls {
-        constructor(/** @type {number} */ currentCount) {
-            this._slider = new CountSlider(currentCount);
-            this._increaseButton = new IncreaseButton();
-            this._decreaseButton = new DecreaseButton();
-            this._playButton = new PlayButton();
+        /**
+         * @param {number} currentCount
+         * @param {Preview} preview
+         */
+        constructor(currentCount, preview) {
+            this._slider = new CountSlider(currentCount, x => preview.setDivs(x));
+            this._increaseButton = new IncreaseButton(() => preview.increaseCount());
+            this._decreaseButton = new DecreaseButton(() => preview.decreaseCount());
+            this._playButton = new PlayButton(x => preview.setPlay(x));
         }
 
         set value(/** @type {number} */ value) {
@@ -116,87 +118,103 @@ function onPageReady() {
         set playing(/** @type {boolean} */ value) {
             this._playButton.playing = value;
         }
-    };
-
-
-    // State
-    let animationInterval;
-    let playing = false;
-    let currentCount = defaultStart;
-    const controls = new Controls(currentCount);
-
-    const iframe = /** @type {HTMLIFrameElement} */ (document.getElementById('content-iframe'));
-    if (iframe.contentDocument.readyState === 'complete' || iframe.contentDocument.readyState === 'interactive') {
-         setTimeout(onReady, 0);
-    } else {
-        iframe.contentDocument.addEventListener('DOMContentLoaded', onReady, true);
     }
 
-    function onReady() {
-        if (!iframe.contentDocument || !iframe.contentDocument.body) {
-            setTimeout(onReady, 50);
-            return;
-        }
-        
-        setDivs(currentCount, true);
-        setPlay(autoplay, defaultStart);
-    }
+    class Preview {
+        constructor() {
+            this.playing = false;
 
-    function setPlay(shouldPlay, initialValue) {
-        clearInterval(animationInterval);
-        if (shouldPlay) {
-            setDivs(initialValue || 1, true);
-            animationInterval = setInterval(() => {
-                if (currentCount < maxCount) {
-                    setDivs(currentCount + 1, true);
-                } else {
-                    clearInterval(animationInterval);
-                    controls.playing = false;
+            this.iframe = /** @type {HTMLIFrameElement} */ (document.getElementById('content-iframe'));
+
+            const onReady = () => {
+                if (!this.iframe.contentDocument || !this.iframe.contentDocument.body) {
+                    setTimeout(onReady, 50);
+                    return;
                 }
-            }, speed);
+
+                preview.setDivs(currentCount, true);
+                this.setPlay(autoplay, defaultStart);
+            };
+
+            if (this.iframe.contentDocument.readyState === 'complete' || this.iframe.contentDocument.readyState === 'interactive') {
+                setTimeout(onReady, 0);
+            } else {
+                this.iframe.contentDocument.addEventListener('DOMContentLoaded', onReady, true);
+            }
         }
 
-        playing = shouldPlay
-        controls.playing = shouldPlay;
-    }
+        /**
+         * @param {number} count
+         * @param {boolean} [animation]
+         */
+        setDivs(count, animation) {
+            count = this.updateState(count)
+            if (!animation) {
+                this.setPlay(false);
+            }
 
-    function increaseCount() {
-        const count = updateState(currentCount + 1)
-        setPlay(false);
-
-        const body = iframe.contentDocument.body;
-        const newDiv = document.createElement('div');
-        newDiv.appendChild(body.children[0]);
-        body.appendChild(newDiv);
-    }
-
-    function decreaseCount() {
-        setDivs(currentCount - 1)
-    }
-
-    function setDivs(count, animation) {
-        count = updateState(count)
-        if (!animation) {
-            setPlay(false);
+            const body = this.iframe.contentDocument.body;
+            body.innerHTML = '';
+            let parent = body;
+            for (let i = 0; i < count; ++i) {
+                const newNode = document.createElement('div');
+                parent.appendChild(newNode)
+                parent = newNode;
+            }
         }
 
-        const body = iframe.contentDocument.body;
-        body.innerHTML = '';
-        let parent = body;
-        for (let i = 0; i < count; ++i) {
-            const newNode = document.createElement('div');
-            parent.appendChild(newNode)
-            parent = newNode;
+        increaseCount() {
+            const count = this.updateState(currentCount + 1)
+            this.setPlay(false);
+
+            const body = this.iframe.contentDocument.body;
+            const newDiv = document.createElement('div');
+            newDiv.appendChild(body.children[0]);
+            body.appendChild(newDiv);
+        }
+
+        decreaseCount() {
+            preview.setDivs(currentCount - 1)
+        }
+
+        /**
+         * @param {boolean} shouldPlay
+         * @param {number} [initialValue]
+         */
+        setPlay(shouldPlay, initialValue) {
+            clearInterval(animationInterval);
+            if (shouldPlay) {
+                preview.setDivs(initialValue || 1, true);
+                animationInterval = setInterval(() => {
+                    if (currentCount < maxCount) {
+                        preview.setDivs(currentCount + 1, true);
+                    } else {
+                        clearInterval(animationInterval);
+                        controls.playing = false;
+                    }
+                }, speed);
+            }
+    
+            this.playing = shouldPlay
+            controls.playing = shouldPlay;
+        }
+
+        updateState(newCount) {
+            currentCount = clamp(newCount, 1, maxCount);
+            controls.value = currentCount;
+            return currentCount;
         }
     }
-
+    
     function clamp(x, min, max) {
         return Math.min(max, Math.max(min, x));
     }
 
-    function updateState(newCount) {
-        currentCount = clamp(newCount, 1, maxCount);
-        controls.value = currentCount;
-        return currentCount;
-    }
+    // State
+    let animationInterval;
+    let currentCount = defaultStart;
+    const preview = new Preview();
+    const controls = new Controls(currentCount, preview);
+
+   
 };

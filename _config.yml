@@ -31,3 +31,8 @@ exclude:
   - README.md
   - CNAME
   - support
+  - node_modules
+  - lib
+  - package.json
+  - package-lock.json
+  - webpack.config.js

@@ -26,4 +26,5 @@ div {
   max-width: 400px;
   transform: rotate(10deg);
   background-color: #00a;
+  filter: hue-rotate(1deg);
 }

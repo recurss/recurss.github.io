@@ -1,0 +1,29 @@
+---
+layout: specimen
+title: Hypn&ocirc;se
+author:
+    name: Alok Menghrajani
+    link: https://quaxio.com/
+settings:
+    max: 200       # Maximum value or recursions
+    start: 1       # Starting number of recursions on page load
+    autoplay: 1    # Should recursions start playing when the page is loaded?
+---
+
+body {
+    overflow: hidden;
+}
+
+body > div {
+  margin-top: 50vh;
+  margin-left: 50vw;
+  position: relative;
+  left: -200px;
+}
+
+div {
+  border: 2px solid #bdf;
+  max-width: 400px;
+  transform: rotate(10deg);
+  background-color: #00a;
+}

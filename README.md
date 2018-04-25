@@ -32,15 +32,15 @@ Submissions to the Recurss collection are highly welcome. Take a look at [how so
 ## Creating a new specimen
 
 **Get Started**
-1. [Install Jekyll](https://jekyllrb.com)
-
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository.
 
 1. Open your fork locally
 
 1. Create a branch to work on: `git checkout -b new-specimen`
 
-1. Start Jekyll: `jekyll serve`
+1. Install [jekyll](https://jekyllrb.com) and dependencies: `bundle update`
+
+1. Start Jekyll: `bundle exec jekyll serve`
 
     You can now browse a local copy of Recurss on http://localhost:4000
 

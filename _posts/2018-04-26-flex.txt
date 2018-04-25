@@ -1,0 +1,38 @@
+---
+layout: specimen
+title: Flex
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 45
+    start: 45
+---
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body > div {
+    width: 4px;
+    height: 4px;
+}
+
+div {
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+    border: 4px solid black;
+    margin-top: -12px;
+    margin-left: -12px;
+    animation: 6s spin ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0); }
+    33% { transform: rotate(1deg); }
+    66% { transform: rotate(-1deg); }
+    100% { transform: rotate(0) }
+}

@@ -1,0 +1,25 @@
+---
+layout: specimen
+title: Octagram
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 300
+    start: 0
+    autoplay: 1
+    speed: 50
+---
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+div {
+    transform: rotate(45deg);
+    border: 4px solid white;
+    background: black;
+}

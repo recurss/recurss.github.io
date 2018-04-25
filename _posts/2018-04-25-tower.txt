@@ -1,0 +1,39 @@
+---
+layout: specimen
+title: Tower
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 200
+    start: 200
+---
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+body > div {
+    width: 20px;
+    height: 20px;
+    transform-style: preserve-3d;
+    animation: spin 10s linear infinite;
+}
+
+div {
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background: linear-gradient(-45deg, #0ff4, #f0f3);
+    transform-style: preserve-3d;
+    transform: translateZ(-10px) rotate(6deg);
+}
+
+@keyframes spin {
+    from {
+        transform: rotateX(70deg) rotateZ(0); 
+    }
+    to {
+        transform: rotateX(70deg) rotateZ(360deg); 
+    }
+}

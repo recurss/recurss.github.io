@@ -1,0 +1,60 @@
+---
+layout: specimen
+title: RGB
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 100
+    start: 1
+    autoplay: 1
+    speed: 100
+---
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body > div {
+    width: 10px;
+    height: 10px;
+}
+
+div {
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+}
+
+div, div::before, div::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100%;
+}
+
+div {
+    background: linear-gradient(to top, #f00f, #f000);
+    transform-style: preserve-3d;
+    transform: translateZ(-1px) rotate(10deg) translate(-5px, -5px);
+    transform-origin: 50% 86%; 
+}
+
+div::before, div::after {
+    width: 100%;
+    height: 100%;
+    top: 50%;
+}
+
+div::before {
+    background: linear-gradient(125deg, #0f0f, #0f00);
+    left: 33.33333%;
+}
+
+div::after {
+    background: linear-gradient(225deg, #00ff, #00f0);
+    left: -33.33333%;
+}
+

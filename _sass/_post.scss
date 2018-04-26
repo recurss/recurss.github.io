@@ -27,6 +27,17 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    overflow: hidden;
+
+    .preview {
+        overflow: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        display: flex;
+    }
 
     iframe {
         flex: 1;

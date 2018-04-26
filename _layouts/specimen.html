@@ -2,13 +2,14 @@
 layout: default
 ---
 
-<header class="masthead">
-    <h1 class="page-title"><a href="{{ site.baseurl }}/" class="site-avatar">RECURSS</a> / {{ page.title }}</h1>
-
-    <h2 class="post-meta">{{ page.date | date: "%Y-%m-%d" }} — <a href="{{ page.author.link }}">{{ page.author.name }}</a> — <a href="https://github.com/recurss/recurss.github.io/tree/master/{{ page.path }}">source</a></h2>
-</header>
-
 <article role="main" class="main post">
+    <header class="masthead">
+        <h1 class="page-title"><a href="{{ site.baseurl }}/" class="site-avatar">RECURSS</a> / {{ page.title }}</h1>
+
+        <h2 class="post-meta">{{ page.date | date: "%Y-%m-%d" }} — <a href="{{ page.author.link }}">{{ page.author.name }}</a> — <a href="https://github.com/recurss/recurss.github.io/tree/master/{{ page.path }}">source</a></h2>
+    </header>
+
+    <div class="preview">
     <iframe id='content-iframe' frameborder="0" srcdoc="<!DOCTYPE html>
         <html lang='en'>
         <head>
@@ -36,6 +37,7 @@ layout: default
             <div></div>
         </body>
         </html>"></iframe>
+    </div>
 
     <div class='count-controls'>
         <button class='decrease-button'></button>

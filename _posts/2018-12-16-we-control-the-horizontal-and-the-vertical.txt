@@ -1,0 +1,43 @@
+---
+layout: specimen
+title: We control the horizontal and the vertical
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 100
+    start: 50
+    autoplay: 0
+    speed: 100
+---
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: black;
+}
+
+body > div {
+    width: 4px;
+    height: 2px;
+}
+
+div {
+    width: calc(100% + 16px);
+    height: calc(100% + 12px);
+    border: 4px solid black;
+    margin-top: -10px;
+    margin-left: -12px;
+    background: white;
+    animation: 6s loop linear infinite;
+}
+
+@keyframes loop {
+    0% { transform: rotateX(90deg); }
+    20% { transform: rotateX(0); }
+    40% { transform: rotateX(0); }
+    60% { transform: rotateX(90deg); }
+    100% { transform: rotateX(90deg); }
+}

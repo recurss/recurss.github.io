@@ -1,0 +1,29 @@
+---
+layout: specimen
+title: Black hole 
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 500
+    start: 0
+    autoplay: 1
+    speed: 25
+---
+
+body {
+    overflow: hidden;
+    background: black;
+}
+
+body > div {
+    position: absolute;
+    top: 50%;
+}
+
+div {
+    width: calc(100% + 40px);
+    margin-top: -3px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    transform: rotate(23deg);
+}

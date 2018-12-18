@@ -1,0 +1,27 @@
+---
+layout: specimen
+title: Snowflake
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 250
+    start: 0
+    autoplay: 1
+    speed: 50
+---
+
+body {
+    overflow: hidden;
+    background: rgb(15, 15, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div {
+    height: 98%;
+    margin-left: -22px;
+    border: 10px solid rgba(200, 255, 255, 0.05);
+    transform: rotate(60deg);
+}

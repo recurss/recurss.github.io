@@ -1,0 +1,31 @@
+---
+layout: specimen
+title: Expando Box (mouse over) 
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 50
+    start: 50
+    autoplay: 0
+    speed: 50
+---
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+div {
+    border: 4px solid red;
+    margin: 4px;
+    transition: border 0.25s, margin 0.25s;
+}
+
+div:hover {
+    border-left-width: 0;
+    border-right-width: 0;
+    margin: 0
+}

@@ -1,0 +1,25 @@
+---
+layout: specimen
+title: Simple Weave
+author:
+    name: Matt Bierner
+    link: https://mattbierner.com
+settings:
+    max: 50
+    start: 50
+    autoplay: 0
+    speed: 50
+---
+
+body {
+    overflow: hidden;
+}
+
+div {
+    outline: 8px solid white;
+    border: 8px inset #333;
+    background: #777;
+    width: 32px;
+    height: 32px;
+    padding: 16px;
+}
